@@ -9,6 +9,8 @@ import com.jwl.atomicbomb.persenter.SplashPresenter;
 import com.jwl.atomicbomb.view.ISplashView;
 import com.jwl.tools.ToastUtils;
 
+import org.xutils.view.annotation.ViewInject;
+
 
 /**
  * SplashActivity
@@ -18,20 +20,19 @@ public class SplashActivity extends BaseActivity implements ISplashView {
 
     public SplashPresenter presenter;
 
-
+    @ViewInject(R.id.splash_logo)
     private ImageView splashLogoImage;
-
 
     @Override
     void initVariables() {
         presenter = new SplashPresenter(this);
+        presenter.attachView(this);
 
     }
 
     @Override
     void initViews(Bundle savedInstanceState) {
         setContentView(R.layout.activity_splash);
-
 
     }
 

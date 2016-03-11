@@ -13,8 +13,4 @@ import com.jwl.tools.NetWorkUtils;
  */
 public class SplashModelImpl implements ISplashModel {
 
-    @Override
-    public boolean isNetConnect(Context context) {
-        return NetWorkUtils.isNetConnect(context);
-    }
 }

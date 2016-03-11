@@ -16,7 +16,7 @@ import com.jwl.atomicbomb.view.ISplashView;
  * 时间：on 2015/11/16 15:53
  * 邮箱：liujiangwei@triphare.com
  */
-public class SplashPresenter {
+public class SplashPresenter extends BasePresenter {
 
     private ISplashModel iModel;
     private ISplashView iView;
@@ -32,8 +32,6 @@ public class SplashPresenter {
     }
 
     public void didFinishSplash(Context context){
-
-        final boolean is_connect = iModel.isNetConnect(context);
 
         splashAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener()
         {
@@ -52,14 +50,8 @@ public class SplashPresenter {
             {
                 super.onAnimationEnd(animation);
                 splashAnimation.cancel();
-                if (is_connect)
-                {
-                    iView.startNextActivity();
-                }
-                else
-                {
-                    iView.showNetError();
-                }
+
+                iView.startNextActivity();
             }
         });
 

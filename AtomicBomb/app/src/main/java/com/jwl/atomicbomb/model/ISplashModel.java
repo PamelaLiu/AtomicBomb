@@ -10,5 +10,4 @@ import android.content.Context;
  */
 public interface ISplashModel {
 
-    boolean isNetConnect( Context context);
 }
