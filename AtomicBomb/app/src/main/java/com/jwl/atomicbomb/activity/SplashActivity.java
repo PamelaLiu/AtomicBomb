@@ -7,15 +7,17 @@ import android.widget.ImageView;
 import com.jwl.atomicbomb.R;
 import com.jwl.atomicbomb.persenter.SplashPresenter;
 import com.jwl.atomicbomb.view.ISplashView;
-import com.jwl.tools.ToastUtils;
 
+import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
 
 /**
  * SplashActivity
- * Created by jwl on 2015-11-17.
+ * Created by jwl on 2016-3-12.
  */
+
+@ContentView(R.layout.activity_splash)
 public class SplashActivity extends BaseActivity implements ISplashView {
 
     public SplashPresenter presenter;
@@ -24,15 +26,14 @@ public class SplashActivity extends BaseActivity implements ISplashView {
     private ImageView splashLogoImage;
 
     @Override
-    void initVariables() {
+    void initViews(Bundle savedInstanceState) {
         presenter = new SplashPresenter(this);
         presenter.attachView(this);
 
     }
 
     @Override
-    void initViews(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_splash);
+    protected void getBundleExtras(Bundle extras) {
 
     }
 
@@ -42,16 +43,28 @@ public class SplashActivity extends BaseActivity implements ISplashView {
     }
 
     @Override
+    protected boolean toggleOverridePendingTransition() {
+        return false;
+    }
+
+    @Override
+    protected TransitionMode getOverridePendingTransitionMode() {
+        return TransitionMode.FADE;
+    }
+
+
+    @Override
+    protected boolean isBindEventBusHere() {
+        return false;
+    }
+
+
+    @Override
     public void showAnimation(float scale) {
 
         splashLogoImage.setScaleX(scale);
         splashLogoImage.setScaleY(scale);
         splashLogoImage.setAlpha(scale);
-    }
-
-    @Override
-    public void showNetError() {
-        ToastUtils.makeLong(R.string.network_error);
     }
 
     @Override

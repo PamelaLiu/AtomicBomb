@@ -6,7 +6,7 @@ import com.squareup.otto.ThreadEnforcer;
 /**
  * 简介：
  * 作者：jwliu
- * 时间：on 2015/5/22 13:42
+ * 时间：on 2015/12/22 13:42
  * 邮箱：ljw_email@foxmail.com
  */
 public class BusProvider

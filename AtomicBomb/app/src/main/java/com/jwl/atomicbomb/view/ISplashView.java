@@ -10,6 +10,5 @@ public interface ISplashView extends IBaseView {
 
     void showAnimation(float scale);
 
-    void showNetError();
     void startNextActivity();
 }

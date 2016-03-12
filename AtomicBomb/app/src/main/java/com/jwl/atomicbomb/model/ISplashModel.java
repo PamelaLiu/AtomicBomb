@@ -1,6 +1,5 @@
 package com.jwl.atomicbomb.model;
 
-import android.content.Context;
 
 /**
  * 简介：

@@ -6,7 +6,7 @@ public class MD5 {
 	public static void main(String[] args) {
 		encryptMD5("123456");
 	}
-	//MD5���ܣ�32λ  
+
     public static String encryptMD5(String str)
     {  
         MessageDigest md5 = null;
