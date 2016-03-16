@@ -12,7 +12,6 @@ import com.jwl.atomicbomb.R;
 import com.jwl.atomicbomb.view.IBaseView;
 import com.jwl.otto.BusProvider;
 
-import org.xutils.x;
 
 /**
  * BaseActivity
@@ -54,7 +53,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
         }
 
         super.onCreate(savedInstanceState);
-        x.view().inject(this);
 
         Bundle extras = getIntent().getExtras();
         if (null != extras) {
@@ -69,11 +67,11 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
 //        setTranslucentStatus(isApplyStatusBarTranslucency());
         BaseAppManager.getInstance().addActivity(this);
 
-//        if (getContentViewLayoutID() != 0) {
-//            setContentView(getContentViewLayoutID());
-//        } else {
-//            throw new IllegalArgumentException("You must return a right contentView layout resource Id");
-//        }
+        if (getContentViewLayoutID() != 0) {
+            setContentView(getContentViewLayoutID());
+        } else {
+            throw new IllegalArgumentException("You must return a right contentView layout resource Id");
+        }
 
         initViews(savedInstanceState);
         loadData();
@@ -171,6 +169,13 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
      * @param extras
      */
     protected abstract void getBundleExtras(Bundle extras);
+
+    /**
+     * bind layout resource file
+     *
+     * @return id of layout resource
+     */
+    protected abstract int getContentViewLayoutID();
 
     /**
      * is bind eventBus

@@ -4,10 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.os.Handler;
 
 import com.jwl.atomicbomb.model.ISplashModel;
-import com.jwl.atomicbomb.model.impl.SplashModelImpl;
 import com.jwl.atomicbomb.view.ISplashView;
 
 /**
@@ -18,14 +16,12 @@ import com.jwl.atomicbomb.view.ISplashView;
  */
 public class SplashPresenter extends BasePresenter {
 
-    private ISplashModel iModel;
     private ISplashView iView;
     private ValueAnimator splashAnimation = null;
     private final static int SPLASH_DURATION = 2000;
 
     public SplashPresenter(ISplashView iView){
         this.iView = iView;
-        iModel = new SplashModelImpl();
 
         splashAnimation = ValueAnimator.ofFloat(0.5f, 1.0f).setDuration(SPLASH_DURATION);
 

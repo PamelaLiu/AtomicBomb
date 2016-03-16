@@ -8,22 +8,21 @@ import com.jwl.atomicbomb.R;
 import com.jwl.atomicbomb.persenter.SplashPresenter;
 import com.jwl.atomicbomb.view.ISplashView;
 
-import org.xutils.view.annotation.ContentView;
-import org.xutils.view.annotation.ViewInject;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 
 /**
  * SplashActivity
  * Created by jwl on 2016-3-12.
  */
-
-@ContentView(R.layout.activity_splash)
 public class SplashActivity extends BaseActivity implements ISplashView {
 
     public SplashPresenter presenter;
 
-    @ViewInject(R.id.splash_logo)
-    private ImageView splashLogoImage;
+    @Bind(R.id.splash_logo)
+    ImageView splashLogo;
+
 
     @Override
     void initViews(Bundle savedInstanceState) {
@@ -35,6 +34,11 @@ public class SplashActivity extends BaseActivity implements ISplashView {
     @Override
     protected void getBundleExtras(Bundle extras) {
 
+    }
+
+    @Override
+    protected int getContentViewLayoutID() {
+        return R.layout.activity_splash;
     }
 
     @Override
@@ -62,9 +66,9 @@ public class SplashActivity extends BaseActivity implements ISplashView {
     @Override
     public void showAnimation(float scale) {
 
-        splashLogoImage.setScaleX(scale);
-        splashLogoImage.setScaleY(scale);
-        splashLogoImage.setAlpha(scale);
+//        splashLogoImage.setScaleX(scale);
+//        splashLogoImage.setScaleY(scale);
+//        splashLogoImage.setAlpha(scale);
     }
 
     @Override
@@ -84,4 +88,12 @@ public class SplashActivity extends BaseActivity implements ISplashView {
     protected void onPause() {
         super.onPause();
     }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
+
 }

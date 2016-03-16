@@ -5,7 +5,6 @@ import android.app.Application;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
-import org.xutils.x; 
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +25,6 @@ public class AtomApplication extends Application {
     public void onCreate() {
         // TODO Auto-generated method stub
         mInstance = this;
-        x.Ext.init(this);
 
         super.onCreate();
     }
