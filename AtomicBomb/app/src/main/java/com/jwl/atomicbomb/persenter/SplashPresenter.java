@@ -5,7 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.Context;
 
-import com.jwl.atomicbomb.model.ISplashModel;
 import com.jwl.atomicbomb.view.ISplashView;
 
 /**
