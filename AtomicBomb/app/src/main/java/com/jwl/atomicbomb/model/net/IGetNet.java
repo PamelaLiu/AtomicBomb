@@ -2,7 +2,6 @@ package com.jwl.atomicbomb.model.net;
 
 import com.jwl.atomicbomb.model.bean.BaseBean;
 
-import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
